@@ -6,14 +6,15 @@ import React from "react";
 
 export default function Home() {
   const { isSignedIn, user, isLoaded } = useUser();
+  const [name, setName] = React.useState("");
 
   if (!isLoaded) {
     return null;
   }
 
-  const [name, setName] = React.useState("");
-
-  function handleSubmit(e: React.FormEvent) {}
+  function handleSubmit(e: React.FormEvent) {
+    return;
+  }
 
   if (isSignedIn) {
     return (
@@ -33,9 +34,9 @@ export default function Home() {
             />
             <div className="ml-10">
               <p className="text-lg text-orange-400">
-                Hi there! I'm your personalizable mental health assistant. I'm
+                {`Hi there! I'm your personalizable mental health assistant. I'm
                 here to help you explore your thoughts and help track your mood.
-                What's your name?
+                What's your name?`}
               </p>
 
               <form onSubmit={handleSubmit}>
