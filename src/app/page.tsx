@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { baseurl } from "@/lib/utils";
 import { SignInButton } from "@clerk/nextjs";
 
 export default function LandingPage() {
@@ -15,7 +16,7 @@ export default function LandingPage() {
           </p>
           <div className="mt-10 flex justify-center">
             <Button value="outline" asChild>
-              <SignInButton redirectUrl="http://localhost:3000/about">
+              <SignInButton redirectUrl={`${baseurl()}/about`}>
                 Get Started
               </SignInButton>
             </Button>
