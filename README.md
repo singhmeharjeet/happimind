@@ -15,10 +15,6 @@ SFU Health and Counseling lacks the capacity to adequately support all students 
 - Easily accessible through your browser
 
 ## Installation
-- Clone the repository
-- Run `npm install` to install all the dependencies
-- Run `npm run dev` to start the server
-- Open your browser and go to `localhost:3000` to view the app
-
+- Go to the [HappiMind](https://happimind.vercel.app/) website
 
 
