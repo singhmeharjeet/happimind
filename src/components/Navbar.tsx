@@ -26,7 +26,7 @@ export default function Component() {
       <nav className="flex w-full items-center justify-end gap-2">
         <SignedOut>
           <Button value="outline" asChild>
-            <SignInButton redirectUrl={"http://localhost:3001/about"} />
+            <SignInButton redirectUrl={"http://localhost:3000/about"} />
           </Button>
         </SignedOut>
         <SignedIn>
@@ -36,7 +36,7 @@ export default function Component() {
           <Button variant="outline" asChild>
             <Link href="/about">Preferences</Link>
           </Button>
-          <UserButton afterSignOutUrl="http://localhost:3001/" />
+          <UserButton afterSignOutUrl="http://localhost:3000/" />
         </SignedIn>
       </nav>
     </header>

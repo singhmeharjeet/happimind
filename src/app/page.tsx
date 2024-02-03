@@ -15,7 +15,7 @@ export default function LandingPage() {
           </p>
           <div className="mt-10 flex justify-center">
             <Button value="outline" asChild>
-              <SignInButton redirectUrl="http://localhost:3001/about">
+              <SignInButton redirectUrl="http://localhost:3000/about">
                 Get Started
               </SignInButton>
             </Button>

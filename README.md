@@ -1,28 +1,24 @@
-# Create T3 App
+# App Name
+HappiMind
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Description
+HappiMind - Navigate life's challenges with a smile, redefining mental wellness, one AI step at a time.
+SFU Health and Counseling lacks the capacity to adequately support all students in need of mental health assistance. The need for better mental health counseling resources still exists and this is an issue that demands attention. Our team wanted to offer a solution that could fill this gap and provide personalized mental health counseling through AI.
 
-## What's next? How do I make an app with this?
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Features
+- Engage with the AI through a messaging feature for interactive and personalized conversations
+- Authentication feature for added security
+- Add a unique touch to the experience by personalizing your assistant’s appearance and personality
+- Effortlessly track your daily mood to elevate your self-reflection journey
+- Available to use 24/7
+- Easily accessible through your browser
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Installation
+- Clone the repository
+- Run `npm install` to install all the dependencies
+- Run `npm run dev` to start the server
+- Open your browser and go to `localhost:3000` to view the app
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
 
-## Learn More
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
