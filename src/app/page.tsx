@@ -5,17 +5,22 @@ export default function LandingPage() {
   return (
     <>
       <div className="h-screen">
-        <h1 className="mt-20 text-center text-4xl font-bold text-amber-700">
-          HappiMind
-        </h1>
-        <p className="mt-3 text-center text-xl text-orange-400">
-          Say Hello to Your Mental Health AI Assistant!
-        </p>
-        <div className="mt-10 flex justify-center">
-          <Button value="outline" asChild>
-            <SignInButton redirectUrl={"http://localhost:3001/about"} />
-          </Button>
-        </div>
+        <main className="flex h-screen flex-1 flex-col items-center justify-center px-4 md:px-6">
+          <h1 className="text-4xl font-bold tracking-tighter md:text-5xl lg:text-6xl/none">
+            Welcome to AI Therapy
+          </h1>
+          <p className="mt-4 max-w-[700px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            We provide personalized therapy sessions powered by advanced AI
+            technology. Start your journey towards better mental health today.
+          </p>
+          <div className="mt-10 flex justify-center">
+            <Button value="outline" asChild>
+              <SignInButton redirectUrl="http://localhost:3001/about">
+                Get Started
+              </SignInButton>
+            </Button>
+          </div>
+        </main>
       </div>
     </>
   );
