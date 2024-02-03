@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export function baseurl() {
   if (process.env.NODE_ENV === "production") {
-    return "https://yourdomain.com";
+    return "https://happimind.vercel.app";
   } else {
     return "http://localhost:3000";
   }
