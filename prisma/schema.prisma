@@ -6,6 +6,38 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+    provider  = "postgresql"
+    url       = env("DATABASE_URL")
+    directUrl = env("DIRECT_URL")
+}
+
+model User {
+    email  String  @id
+    events Event[]
+    ai     String
+    tone   String
+}
+
+model Event {
+    id     String @id @default(uuid())
+    userid String
+    user   User   @relation(fields: [userid], references: [email])
+
+    sessions Session[]
+}
+
+model Session {
+    id      String @id @default(uuid())
+    event   Event  @relation(fields: [eventId], references: [id])
+    eventId String
+
+    qa QA[]
+}
+
+model QA {
+    id        String  @id @default(uuid())
+    session   Session @relation(fields: [sessionId], references: [id])
+    sessionId String
+    question  String
+    answer    String
 }

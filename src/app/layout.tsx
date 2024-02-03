@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import imagePath from "public/assets/Background.png";
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
-        <div className="absolute inset-0 -z-10">
+        <div className="h-vh fixed inset-0 -z-10">
           <Image
             src={imagePath}
             alt="always add alt"
@@ -33,7 +34,12 @@ export default function RootLayout({
             style={{ objectFit: "cover" }}
           />
         </div>
-        <Providers>{children}</Providers>
+
+        <Providers>
+          <Navbar />
+
+          {children}
+        </Providers>
       </body>
     </html>
   );
