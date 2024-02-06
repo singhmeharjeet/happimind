@@ -3,7 +3,12 @@ import { useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import React from "react";
-
+import { Great_Vibes } from "next/font/google";
+import { cn } from "@/lib/utils";
+const great_vibes = Great_Vibes({
+  weight: "400",
+  subsets: ["latin"],
+});
 export default function Home() {
   const { isSignedIn, user, isLoaded } = useUser();
   const [name, setName] = React.useState("");
@@ -20,12 +25,6 @@ export default function Home() {
     return (
       <>
         <div className="mx-auto max-w-screen-lg p-6">
-          <header className="text-center">
-            <h1 className="text-4xl font-bold text-amber-700">HappiMind</h1>
-            <p className="mt-3 text-xl text-orange-400">
-              Say Hello to Your Mental Health AI Assistant!
-            </p>
-          </header>
           <main className="flex w-full flex-col items-center">
             <img
               className="flex h-auto w-full max-w-xs"

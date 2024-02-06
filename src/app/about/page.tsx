@@ -35,10 +35,6 @@ const QuestionnairePage: React.FC = () => {
   }
   return (
     <div className="p-6">
-      <header className="mb-6 text-center">
-        <h1 className="text-4xl font-bold text-amber-700">HappiMind</h1>
-      </header>
-
       <form onSubmit={handleSubmit} className="w-full">
         <section className="item-center space-4 my-6 flex flex-col justify-center">
           <h1 className="w-full text-center text-2xl font-bold text-amber-700">
