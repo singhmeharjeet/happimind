@@ -23,6 +23,10 @@ export const env = createEnv({
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string(),
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL: z.string(),
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL: z.string(),
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: z.string(),
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL: z.string(),
   },
 
   /**
@@ -36,6 +40,12 @@ export const env = createEnv({
     DIRECT_URL: process.env.DIRECT_URL,
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
       process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL,
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_UP_URL,
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL:
+      process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL,
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL:
+      process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
