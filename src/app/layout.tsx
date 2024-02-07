@@ -26,6 +26,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <ClerkProvider publishableKey={env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
       <html lang="en" suppressHydrationWarning>
@@ -37,7 +38,7 @@ export default function RootLayout({
             <main className="aria-hidden flex min-h-[100dvh] min-w-[100dvw] flex-col">
               <BGImage />
               <Navbar />
-              <section className="inline-flex grow">{children}</section>
+              <section className="inline-flex h-full grow">{children}</section>
               <Toaster />
             </main>
           </Providers>

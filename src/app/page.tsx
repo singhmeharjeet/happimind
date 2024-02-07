@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { baseurl, cn } from "@/lib/utils";
-import { SignInButton, auth } from "@clerk/nextjs";
+import { cn } from "@/lib/utils";
+import { auth } from "@clerk/nextjs";
 import { Dancing_Script } from "next/font/google";
 import Link from "next/link";
 
@@ -12,8 +12,6 @@ const font = Dancing_Script({
 
 export default async function LandingPage() {
   const { userId } = auth();
-
-  console.log(userId);
   return (
     <div className="flex-center min-h-full min-w-full flex-col items-center justify-center gap-6 px-4 md:px-6">
       <h1
@@ -30,13 +28,7 @@ export default async function LandingPage() {
       </p>
       <div className="mt-10 flex justify-center">
         <Button value="outline" asChild>
-          {!userId ? (
-            <SignInButton redirectUrl={`${baseurl()}/home`}>
-              Get Started
-            </SignInButton>
-          ) : (
-            <Link href={`${baseurl()}/home`}>Get Started</Link>
-          )}
+          <Link href={!userId ? "/sign-in" : "/home"}>Get Started</Link>
         </Button>
       </div>
     </div>

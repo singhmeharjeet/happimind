@@ -18,7 +18,7 @@ export function BGImage() {
   if (!isMounted) return null;
 
   return (
-    <div className="fixed -z-30 h-full w-full ">
+    <div className="fixed -z-30 h-full w-full">
       <Image
         src={imagePathLight}
         data-state={theme === "dark" ? "closed" : "open"}
