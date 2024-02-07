@@ -1,6 +1,7 @@
 "use server";
 
 import { db } from "@/server/db";
+import { auth } from "@clerk/nextjs";
 
 export type AI = "male" | "female" | "cat";
 export type Tone = "empathetic" | "solution-oriented";
@@ -14,6 +15,11 @@ export async function createUser({
   ai: AI;
   tone: Tone;
 }) {
+  const { userId } = auth();
+  if (!userId) {
+    throw new Error("You must be signed in to add an item to your cart");
+  }
+
   if (!email) {
     return { error: "email is required" };
   }

@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { useUser } from "@clerk/nextjs";
+import { useAuth, useUser } from "@clerk/nextjs";
 import { createUser } from "@/actions/createUser";
-import { AI, Tone } from "@/actions/createUser";
+import type { AI, Tone } from "@/actions/createUser";
+import Image from "next/image";
 
 const QuestionnairePage: React.FC = () => {
   const [ai, setAi] = useState<AI>("male");
@@ -47,7 +48,9 @@ const QuestionnairePage: React.FC = () => {
           >
             <div className="flex flex-col items-center space-x-2 space-y-2">
               <Label htmlFor="r1">
-                <img
+                <Image
+                  height={200}
+                  width={200}
                   className="size-32 rounded"
                   src="/assets/2.png"
                   alt="Assistant"
@@ -57,7 +60,9 @@ const QuestionnairePage: React.FC = () => {
             </div>
             <div className="flex flex-col items-center space-x-2 space-y-2">
               <Label htmlFor="r2">
-                <img
+                <Image
+                  height={200}
+                  width={200}
                   className="size-32 rounded"
                   src="/assets/1.png"
                   alt="Cat Avatar"
@@ -67,7 +72,9 @@ const QuestionnairePage: React.FC = () => {
             </div>
             <div className="flex flex-col items-center space-x-2 space-y-2">
               <Label htmlFor="r3">
-                <img
+                <Image
+                  height={200}
+                  width={200}
                   className="size-32 rounded"
                   src="/assets/3.png"
                   alt="Person Avatar"

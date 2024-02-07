@@ -4,27 +4,24 @@ import { useTheme } from "next-themes";
 
 import imagePathDark from "public/assets/dark-bg.jpg";
 import imagePathLight from "public/assets/Background.png";
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 export function BGImage() {
-  const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
 
-  // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
-    setMounted(true);
+    setIsMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  }
+  if (!isMounted) return null;
 
   return (
     <div className="fixed -z-30 h-full w-full ">
       <Image
-        data-state={theme === "dark" ? "open" : "closed"}
-        src={imagePathDark}
+        src={imagePathLight}
+        data-state={theme === "dark" ? "closed" : "open"}
         alt="BG image"
         className={cn(
           "absolute inset-0 rounded",
@@ -35,10 +32,9 @@ export function BGImage() {
         )}
         fill
       />
-
       <Image
-        src={imagePathLight}
-        data-state={theme === "dark" ? "closed" : "open"}
+        data-state={theme === "dark" ? "open" : "closed"}
+        src={imagePathDark}
         alt="BG image"
         className={cn(
           "absolute inset-0 rounded",
