@@ -23,8 +23,9 @@ export default async function LandingPage() {
         Welcome to AI Therapy
       </h1>
       <p className="flex w-full max-w-3xl text-balance text-center">
-        We provide personalized therapy sessions powered by advanced AI
-        technology. Start your journey towards better mental health today.
+        Any Language, Any Feeling, we provide personalized therapy sessions
+        powered by advanced AI technology. Start your journey towards better
+        mental health today.
       </p>
       <div className="mt-10 flex justify-center">
         <Button value="outline" asChild>

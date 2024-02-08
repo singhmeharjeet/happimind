@@ -12,17 +12,19 @@ datasource db {
 }
 
 model User {
-    email  String  @id
-    events Event[]
-    ai     String
-    tone   String
+    clerk_id String  @id
+    email    String  @unique
+    events   Event[]
+    ai       String
+    tone     String
 }
 
 model Event {
-    id     String @id @default(uuid())
-    userid String
-    user   User   @relation(fields: [userid], references: [email])
-
+    id       String    @id @default(uuid())
+    userid   String
+    user     User      @relation(fields: [userid], references: [clerk_id])
+    title    String
+    createAt DateTime  @default(now())
     sessions Session[]
 }
 

@@ -3,15 +3,17 @@ import React, { useState } from "react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { useAuth, useUser } from "@clerk/nextjs";
-import { createUser } from "@/actions/createUser";
-import type { AI, Tone } from "@/actions/createUser";
+import { useUser } from "@clerk/nextjs";
+import { editPreference } from "@/actions/editPreference";
+import type { AI, Tone } from "@/actions/editPreference";
 import Image from "next/image";
+import { useToast } from "@/components/ui/use-toast";
 
-const QuestionnairePage: React.FC = () => {
+function Page() {
   const [ai, setAi] = useState<AI>("male");
   const [tone, setTone] = useState<Tone>("empathetic");
   const { user } = useUser();
+  const { toast } = useToast();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -20,25 +22,37 @@ const QuestionnairePage: React.FC = () => {
       return;
     }
 
-    const res = await createUser({
+    const res = await editPreference({
       email: user?.primaryEmailAddress?.emailAddress,
       ai: ai,
       tone: tone,
     });
 
     if (res.success) {
-      console.log("User created successfully");
-    }
-    if (res.error) {
-      console.log("Error creating user");
-      console.log(res.error);
+      toast({
+        title: res.message,
+        description: `Changed To: Character: ${ai}, Tone: ${tone}`,
+        type: "background",
+      });
+    } else {
+      toast({
+        description: res.message,
+        type: "background",
+        variant: "destructive",
+      });
     }
   }
   return (
-    <div className="p-6">
-      <form onSubmit={handleSubmit} className="w-full">
-        <section className="item-center space-4 my-6 flex flex-col justify-center">
-          <h1 className="w-full text-center text-2xl font-bold text-amber-700">
+    <div className="mx-auto flex w-full flex-col items-start justify-center gap-4 rounded p-2 backdrop-blur-sm md:w-3/6 md:gap-8 md:p-4">
+      <h1 className="text-balanced my-4 w-full text-center text-4xl font-semibold tracking-tighter underline decoration-4 underline-offset-2">
+        Change your preferences here!
+      </h1>
+      <form onSubmit={handleSubmit} className="w-full space-y-8">
+        <section className="flex-center w-full flex-col space-y-4">
+          <h1 className="flex w-full items-center text-start font-semibold text-primary/95 md:text-xl">
+            <span className="flex-center mr-2 h-8 w-8 rounded-full bg-accent p-1 text-primary/95 transition-colors duration-1000">
+              1
+            </span>
             Choose your assistant
           </h1>
           <RadioGroup
@@ -84,8 +98,11 @@ const QuestionnairePage: React.FC = () => {
             </div>
           </RadioGroup>
         </section>
-        <section className="mb-6 flex flex-col items-center justify-center space-x-4">
-          <h1 className="w-full text-center text-2xl font-bold text-amber-700">
+        <section className="flex-center w-full flex-col space-y-4">
+          <h1 className="flex w-full items-center text-start font-semibold text-primary/95 md:text-xl">
+            <span className="flex-center mr-2 h-8 w-8 rounded-full bg-accent p-1 text-primary/95 transition-colors duration-1000">
+              2
+            </span>
             Choose the tone of your assistant
           </h1>
           <RadioGroup
@@ -95,21 +112,23 @@ const QuestionnairePage: React.FC = () => {
           >
             <div className="ml-4 flex w-60 items-center justify-start gap-2">
               <RadioGroupItem value="empathetic" id="t1" />
-              <Label htmlFor="r1">Empathetic</Label>
+              <Label htmlFor="t1">Empathetic</Label>
             </div>
             <div className="ml-4 flex  w-60 items-center justify-start gap-2">
               <RadioGroupItem value="solution-oriented" id="t2" />
-              <Label htmlFor="r2">Solution-Oriented</Label>
+              <Label htmlFor="t2">Solution-Oriented</Label>
             </div>
           </RadioGroup>
         </section>
 
-        <div className="w-full items-center justify-center">
-          <Button type="submit">Submit</Button>
+        <div className="flex-center w-full pt-6">
+          <Button type="submit" className="w-1/2">
+            Submit
+          </Button>
         </div>
       </form>
     </div>
   );
-};
+}
 
-export default QuestionnairePage;
+export default Page;

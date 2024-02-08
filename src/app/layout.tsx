@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "@/components/Footer";
 import { BGImage } from "@/components/BgImage";
-import { Suspense } from "react";
 import { ClerkProvider } from "@clerk/nextjs";
 import { env } from "@/env";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export const metadata = {
   title: "HappiMind",
@@ -26,7 +26,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
     <ClerkProvider publishableKey={env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
       <html lang="en" suppressHydrationWarning>
@@ -37,10 +36,12 @@ export default function RootLayout({
           <Providers>
             <main className="aria-hidden flex min-h-[100dvh] min-w-[100dvw] flex-col">
               <BGImage />
+
               <Navbar />
               <section className="inline-flex h-full grow">{children}</section>
               <Toaster />
             </main>
+            <ReactQueryDevtools initialIsOpen={false} />
           </Providers>
           <Footer />
         </body>

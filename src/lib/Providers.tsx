@@ -2,6 +2,13 @@
 import type { ReactNode } from "react";
 import { ThemeProvider } from "next-themes";
 
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 interface ProvidersProps {
   children: ReactNode;
 }
@@ -13,7 +20,7 @@ export const Providers = ({ children }: ProvidersProps) => {
       enableSystem
       disableTransitionOnChange
     >
-      {children}
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </ThemeProvider>
   );
 };

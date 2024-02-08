@@ -24,7 +24,7 @@ export default function Component() {
       <div className="flex h-full w-full items-center justify-end gap-2">
         <SignedOut>
           <Button value="ghost" asChild>
-            <SignInButton redirectUrl={`${baseurl()}/about`} />
+            <SignInButton redirectUrl={`${baseurl()}/preferences`} />
           </Button>
         </SignedOut>
         <SignedIn>
@@ -32,7 +32,7 @@ export default function Component() {
             <Link href="/home">Home</Link>
           </Button>
           <Button variant="ghost" asChild>
-            <Link href="/about">Preferences</Link>
+            <Link href="/preferences">Preferences</Link>
           </Button>
           <Button asChild variant="ghost" size="icon">
             <UserButton afterSignOutUrl={`${baseurl()}/`} />

@@ -13,6 +13,9 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
+    WEBHOOK_SECRET: z.string(),
+    UNSPLASH_ACCESS_KEY: z.string(),
+    UNSPLASH_SECRET_KEY: z.string(),
   },
 
   /**
@@ -27,6 +30,7 @@ export const env = createEnv({
     NEXT_PUBLIC_CLERK_SIGN_UP_URL: z.string(),
     NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: z.string(),
     NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL: z.string(),
+    NEXT_PUBLIC_PIXELS_ACCESS_KEY: z.string(),
   },
 
   /**
@@ -46,6 +50,10 @@ export const env = createEnv({
       process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL,
     NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL:
       process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL,
+    WEBHOOK_SECRET: process.env.WEBHOOK_SECRET,
+    UNSPLASH_ACCESS_KEY: process.env.UNSPLASH_ACCESS_KEY,
+    UNSPLASH_SECRET_KEY: process.env.UNSPLASH_SECRET_KEY,
+    NEXT_PUBLIC_PIXELS_ACCESS_KEY: process.env.NEXT_PUBLIC_PIXELS_ACCESS_KEY,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

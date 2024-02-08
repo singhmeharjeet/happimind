@@ -1,44 +1,38 @@
 "use client";
 import Image from "next/image";
-import { useTheme } from "next-themes";
-
 import imagePathDark from "public/assets/dark-bg.jpg";
 import imagePathLight from "public/assets/Background.png";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export function BGImage() {
   const { theme } = useTheme();
-  const [isMounted, setIsMounted] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
+    setMounted(true);
   }, []);
 
-  if (!isMounted) return null;
+  if (!mounted) return null;
 
   return (
     <div className="fixed -z-30 h-full w-full">
-      <Image
-        src={imagePathLight}
-        data-state={theme === "dark" ? "closed" : "open"}
-        alt="BG image"
-        className={cn(
-          "absolute inset-0 rounded",
-          "data-[state=closed]:animate-theme-unselect data-[state=open]:animate-theme-select",
-        )}
-        fill
-      />
-      <Image
-        data-state={theme === "dark" ? "open" : "closed"}
-        src={imagePathDark}
-        alt="BG image"
-        className={cn(
-          "absolute inset-0 rounded",
-          "data-[state=closed]:animate-theme-unselect data-[state=open]:animate-theme-select",
-        )}
-        fill
-      />
+      {theme === "light" ? (
+        <Image
+          src={imagePathLight}
+          alt="BG image"
+          className={cn("absolute inset-0 rounded")}
+          fill
+        />
+      ) : (
+        <Image
+          src={imagePathDark}
+          alt="BG image"
+          className={cn("absolute inset-0 rounded")}
+          fill
+        />
+      )}
     </div>
   );
 }

@@ -5,6 +5,20 @@
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const config = {};
-
+const config = {
+  images: {
+    remotePatterns: [
+      {
+        hostname: "api.unsplash.com",
+        pathname: "/photos/random",
+      },
+      {
+        hostname: "images.unsplash.com",
+      },
+      {
+        hostname: "images.pexels.com",
+      },
+    ],
+  },
+};
 export default config;
