@@ -11,7 +11,7 @@ export async function GET() {
     const response = await (
       await axios.get(apiUrl.toString(), {
         headers: {
-          Authorization: env.NEXT_PUBLIC_PIXELS_ACCESS_KEY,
+          Authorization: env.PIXELS_ACCESS_KEY,
         },
       })
     ).data;

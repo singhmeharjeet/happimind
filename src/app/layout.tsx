@@ -41,7 +41,9 @@ export default function RootLayout({
               <section className="inline-flex h-full grow">{children}</section>
               <Toaster />
             </main>
-            <ReactQueryDevtools initialIsOpen={false} />
+            {env.NODE_ENV === "development" && (
+              <ReactQueryDevtools initialIsOpen={false} />
+            )}
           </Providers>
           <Footer />
         </body>
