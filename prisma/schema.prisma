@@ -29,9 +29,10 @@ model Event {
 }
 
 model Session {
-    id      String @id @default(uuid())
-    event   Event  @relation(fields: [eventId], references: [id])
-    eventId String
+    id       String   @id @default(uuid())
+    createAt DateTime @default(now())
+    event    Event    @relation(fields: [eventId], references: [id])
+    eventId  String
 
     qa QA[]
 }

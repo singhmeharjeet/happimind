@@ -8,13 +8,13 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "./ui/dialog";
+} from "../ui/dialog";
 import { addEvent } from "@/actions/addEvent";
-import { Label } from "./ui/label";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 import { LucidePlusCircle } from "lucide-react";
-import { useToast } from "./ui/use-toast";
+import { useToast } from "../ui/use-toast";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
@@ -22,9 +22,9 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "./ui/tooltip";
+} from "../ui/tooltip";
 
-const FormAddEvent = () => {
+const AddEvent = () => {
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
   const [input, select] = useState("");
@@ -126,4 +126,4 @@ const FormAddEvent = () => {
   );
 };
 
-export default FormAddEvent;
+export default AddEvent;

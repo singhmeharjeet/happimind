@@ -1,19 +1,17 @@
-// show all the Events of the user
+// show all the session of the event
 
-import Events from "@/components/lists/Events";
-import FormAddEvent from "@/components/forms/AddEvent";
+"use client";
+import { useParams } from "next/navigation";
 
-export default async function page() {
+export default function Page() {
+  const sessionid = useParams().sessionid as string;
   return (
     <>
       <div className="flex-center relative h-fit w-full gap-2">
         <span className="text-balanced text-center text-4xl font-semibold tracking-tighter underline decoration-4 underline-offset-2">
-          Your Life Events!
+          Chat here!
         </span>
-        <FormAddEvent />
       </div>
-
-      <Events />
     </>
   );
 }
