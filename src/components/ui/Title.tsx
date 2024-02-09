@@ -51,4 +51,6 @@ const Title = React.forwardRef<HTMLSpanElement, TitleProps>(
   },
 );
 
+Title.displayName = "Button";
+
 export default Title;
