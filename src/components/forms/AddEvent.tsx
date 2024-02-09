@@ -13,7 +13,7 @@ import { addEvent } from "@/actions/addEvent";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { LucidePlusCircle } from "lucide-react";
+import { LucideCalendarPlus } from "lucide-react";
 import { useToast } from "../ui/use-toast";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -63,9 +63,9 @@ const AddEvent = () => {
                 asChild
                 size="icon"
                 variant="ghost"
-                className="absolute right-0 top-0"
+                className="absolute right-0 top-0 translate-y-full"
               >
-                <LucidePlusCircle className="p-2" />
+                <LucideCalendarPlus className="p-2" />
               </Button>
             </TooltipTrigger>
           </DialogTrigger>

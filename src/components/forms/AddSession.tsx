@@ -47,7 +47,7 @@ const AddEvent = ({ eventid }: { eventid: string }) => {
               asChild
               size="icon"
               variant="ghost"
-              className="absolute right-0 top-0"
+              className="absolute right-0 top-0 translate-y-full"
               onClick={() => newSession()}
             >
               <LucidePlusCircle className="p-2" />
@@ -55,7 +55,7 @@ const AddEvent = ({ eventid }: { eventid: string }) => {
           </TooltipTrigger>
 
           <TooltipContent side="right" sideOffset={2}>
-            <p>Make a new event</p>
+            <p>Make a new session</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>

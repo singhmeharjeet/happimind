@@ -8,6 +8,7 @@ import { editPreference } from "@/actions/editPreference";
 import type { AI, Tone } from "@/actions/editPreference";
 import Image from "next/image";
 import { useToast } from "@/components/ui/use-toast";
+import Title from "@/components/ui/Title";
 
 function Page() {
   const [ai, setAi] = useState<AI>("male");
@@ -43,10 +44,12 @@ function Page() {
     }
   }
   return (
-    <div className="mx-auto flex w-full flex-col items-start justify-center gap-4 rounded p-2 backdrop-blur-sm md:w-3/6 md:gap-8 md:p-4">
-      <h1 className="text-balanced my-4 w-full text-center text-4xl font-semibold tracking-tighter underline decoration-4 underline-offset-2">
-        Change your preferences here!
-      </h1>
+    <div className="mx-auto flex w-full flex-col items-start justify-start gap-4 rounded p-2 md:w-5/6 md:gap-8 md:p-4">
+      <div className="flex-center w-full">
+        <Title size="lg" variant="underline">
+          Preferences
+        </Title>
+      </div>
       <form onSubmit={handleSubmit} className="w-full space-y-8">
         <section className="flex-center w-full flex-col space-y-4">
           <h1 className="flex w-full items-center text-start font-semibold text-primary/95 md:text-xl">

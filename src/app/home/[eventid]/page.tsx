@@ -3,6 +3,7 @@
 "use client";
 import AddSession from "@/components/forms/AddSession";
 import Sessions from "@/components/lists/Sessions";
+import Title from "@/components/ui/Title";
 import { useParams } from "next/navigation";
 
 export default function Page() {
@@ -10,9 +11,9 @@ export default function Page() {
   return (
     <>
       <div className="flex-center relative h-fit w-full gap-2">
-        <span className="text-balanced text-center text-4xl font-semibold tracking-tighter underline decoration-4 underline-offset-2">
-          See your Sessions!
-        </span>
+        <Title size="lg" variant="underline">
+          See your Sessions
+        </Title>
         <AddSession eventid={eventId} />
       </div>
 
