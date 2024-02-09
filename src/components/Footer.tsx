@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="relative flex min-h-16 w-full items-center justify-center gap-4 backdrop-blur-3xl">
       <div>
-        <p>&copy; {new Date().getFullYear()} HappiMind All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} HappiMind</p>
       </div>
 
       <ul className="flex-center absolute left-0 top-0 h-full">
