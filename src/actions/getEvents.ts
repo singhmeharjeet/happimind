@@ -10,13 +10,23 @@ export async function allEvents() {
   }
 
   try {
-    const events = await db.event.findMany();
+    const events = await db.event.findMany({
+      where: {
+        userid: userId,
+      },
+      select: {
+        id: true,
+        title: true,
+        createdAt: true,
+      },
+    });
 
     return { success: true, events };
   } catch (error) {
     return {
       success: false,
       message: "Something went wrong! Please try again in some time.",
+      error,
     };
   }
 }

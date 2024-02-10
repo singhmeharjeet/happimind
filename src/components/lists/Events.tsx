@@ -1,6 +1,6 @@
 "use client";
 
-import { allEvents } from "@/actions/allEvents";
+import { allEvents } from "@/actions/getEvents";
 import { useQuery } from "@tanstack/react-query";
 
 import Image from "next/image";
@@ -48,7 +48,7 @@ export default function Events() {
   if (eventsLoading || imagesLoading || urls === undefined) {
     return (
       <Grid>
-        {[...Array(5)].map((_, index) => {
+        {[...Array(2)].map((_, index) => {
           return (
             <Card
               key={index}

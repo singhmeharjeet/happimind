@@ -5,8 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import Grid from "../Grid";
 import { getSessions } from "@/actions/getSessions";
-import { Card, CardDescription, CardTitle } from "../ui/card";
-import { Loader2, LucideDot } from "lucide-react";
+import { Card, CardDescription } from "../ui/card";
+import { Loader2 } from "lucide-react";
 
 export default function Sessions({ eventId }: { eventId: string }) {
   const { data: sessions, isLoading } = useQuery({
@@ -40,7 +40,7 @@ export default function Sessions({ eventId }: { eventId: string }) {
                   <span className="mr-2 font-semibold text-foreground/90">
                     Session
                   </span>
-                  {sess.createAt.toLocaleString("en-US", {
+                  {sess.createdAt.toLocaleString("en-US", {
                     day: "numeric",
                     month: "long",
                     year: "numeric",

@@ -1,8 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { baseurl } from "@/lib/utils";
 import { ModeToggle } from "./DarkModeToggle";
 import Image from "next/image";
@@ -23,8 +21,8 @@ export default function Component() {
       </Link>
       <div className="flex h-full w-full items-center justify-end gap-2">
         <SignedOut>
-          <Button value="ghost" asChild>
-            <SignInButton redirectUrl={`${baseurl()}/preferences`} />
+          <Button variant="ghost" asChild>
+            <Link href="/home">Login</Link>
           </Button>
         </SignedOut>
         <SignedIn>
@@ -32,7 +30,7 @@ export default function Component() {
             <Link href="/home">Home</Link>
           </Button>
           <Button variant="ghost" asChild>
-            <Link href="/preferences">Preferences</Link>
+            <Link href="/preferences">Personalize</Link>
           </Button>
           <Button asChild variant="ghost" size="icon">
             <UserButton afterSignOutUrl={`${baseurl()}/`} />

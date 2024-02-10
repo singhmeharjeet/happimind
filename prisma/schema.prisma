@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
     provider = "prisma-client-js"
 }
@@ -14,33 +11,33 @@ datasource db {
 model User {
     clerk_id String  @id
     email    String  @unique
-    events   Event[]
     ai       String
     tone     String
+    events   Event[]
 }
 
 model Event {
-    id       String    @id @default(uuid())
-    userid   String
-    user     User      @relation(fields: [userid], references: [clerk_id])
-    title    String
-    createAt DateTime  @default(now())
-    sessions Session[]
+    id        String    @id @default(uuid())
+    userid    String
+    title     String
+    createdAt DateTime  @default(now())
+    user      User      @relation(fields: [userid], references: [clerk_id])
+    sessions  Session[]
 }
 
 model Session {
-    id       String   @id @default(uuid())
-    createAt DateTime @default(now())
-    event    Event    @relation(fields: [eventId], references: [id])
-    eventId  String
-
-    qa QA[]
+    id        String   @id @default(uuid())
+    eventId   String
+    createdAt DateTime @default(now())
+    qa        QA[]
+    event     Event    @relation(fields: [eventId], references: [id])
 }
 
 model QA {
-    id        String  @id @default(uuid())
-    session   Session @relation(fields: [sessionId], references: [id])
+    id        String   @id @default(uuid())
     sessionId String
-    question  String
-    answer    String
+    userMsg   String
+    aiMsg     String
+    createdAt DateTime @default(now())
+    session   Session  @relation(fields: [sessionId], references: [id])
 }

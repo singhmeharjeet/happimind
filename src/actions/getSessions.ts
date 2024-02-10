@@ -19,7 +19,7 @@ export async function getSessions({ eventId }: { eventId: string }) {
       where: { eventId: eventId },
       select: {
         id: true,
-        createAt: true,
+        createdAt: true,
         _count: { select: { qa: true } },
       },
     });

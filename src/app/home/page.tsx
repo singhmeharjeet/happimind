@@ -1,7 +1,7 @@
 // show all the Events of the user
 
 import Events from "@/components/lists/Events";
-import FormAddEvent from "@/components/forms/AddEvent";
+import AddEvent from "@/components/forms/AddEvent";
 import Title from "@/components/ui/Title";
 
 export default async function page() {
@@ -11,7 +11,7 @@ export default async function page() {
         <Title size="lg" variant="underline">
           Your Life Events
         </Title>
-        <FormAddEvent />
+        <AddEvent />
       </div>
 
       <Events />

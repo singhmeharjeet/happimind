@@ -9,8 +9,6 @@ export async function addEvent({ title }: { title: string }) {
     return { success: false, message: "You must be signed in." };
   }
 
-  console.log("Title: ", title);
-
   try {
     const response = await db.event.create({
       data: {
