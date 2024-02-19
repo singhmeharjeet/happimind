@@ -12,6 +12,7 @@ export async function GET() {
       await axios.get(apiUrl.toString(), {
         headers: {
           Authorization: env.PIXELS_ACCESS_KEY,
+          "Access-Control-Allow-Origin": "*",
         },
       })
     ).data;
