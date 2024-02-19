@@ -52,8 +52,9 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
           }
           try {
             const json = JSON.parse(data);
-            const text = json.choices[0].delta?.content || "";
-            if (counter < 2 && (text.match(/\n/) || []).length) {
+            const text: string = json.choices[0].delta?.content ?? "";
+
+            if (counter < 2 && (text.match(/\n/) ?? []).length) {
               // this is a prefix character (i.e., "\n\n"), do nothing
               return;
             }
@@ -70,9 +71,14 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
 
       // stream response (SSE) from OpenAI may be fragmented into multiple chunks
       // this ensures we properly read chunks and invoke an event for each SSE event stream
-      const parser = createParser(onParse);
       // https://web.dev/streams/#asynchronous-iteration
-      for await (const chunk of res.body as any) {
+      const parser = createParser(onParse);
+
+      if (res.body === null) {
+        throw new Error("Response body is null");
+      }
+      //   @ts-expect-error body is a ReadableStream
+      for await (const chunk of res.body) {
         parser.feed(decoder.decode(chunk));
       }
     },

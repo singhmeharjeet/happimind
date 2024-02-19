@@ -8,7 +8,7 @@ export async function addChat({
   msg,
   isUser,
 }: {
-  sessionId: any;
+  sessionId: string;
   msg: string;
   isUser: boolean;
 }) {

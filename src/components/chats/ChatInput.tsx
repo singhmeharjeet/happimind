@@ -10,9 +10,10 @@ import { FC, HTMLAttributes, useContext, useRef, useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import { useToast } from "../ui/use-toast";
 
-interface ChatInputProps extends HTMLAttributes<HTMLDivElement> {}
-
-const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
+const ChatInput: FC<HTMLAttributes<HTMLDivElement>> = ({
+  className,
+  ...props
+}) => {
   const queryClient = useQueryClient();
   const { sessionId } = useContext(MessagesContext);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);

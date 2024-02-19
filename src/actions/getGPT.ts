@@ -14,7 +14,7 @@ export async function askGPT({
   sessionId,
   msg,
 }: {
-  sessionId: any;
+  sessionId: string;
   msg: string;
 }) {
   const { userId } = auth();
@@ -36,7 +36,7 @@ export async function askGPT({
 
     await addChat({
       sessionId,
-      msg: response?.choices[0]?.message.content || "",
+      msg: response?.choices[0]?.message.content ?? "",
       isUser: false,
     });
 

@@ -27,10 +27,10 @@ export const MessagesContext = createContext<{
   messages: [],
   isMessageUpdating: false,
   getLastMessage: () => undefined,
-  addMessage: () => {},
-  removeMessage: () => {},
-  updateMessage: () => {},
-  setIsMessageUpdating: () => {},
+  addMessage: () => undefined,
+  removeMessage: () => undefined,
+  updateMessage: () => undefined,
+  setIsMessageUpdating: () => undefined,
 });
 
 export function MessagesProvider({
