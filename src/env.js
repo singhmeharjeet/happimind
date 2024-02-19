@@ -17,6 +17,7 @@ export const env = createEnv({
     UNSPLASH_ACCESS_KEY: z.string(),
     UNSPLASH_SECRET_KEY: z.string(),
     PIXELS_ACCESS_KEY: z.string(),
+    OPENAI_API_KEY: z.string(),
   },
 
   /**
@@ -31,6 +32,7 @@ export const env = createEnv({
     NEXT_PUBLIC_CLERK_SIGN_UP_URL: z.string(),
     NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: z.string(),
     NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL: z.string(),
+    NEXT_PUBLIC_ASSISTANT_ID: z.string(),
   },
 
   /**
@@ -54,6 +56,8 @@ export const env = createEnv({
     UNSPLASH_ACCESS_KEY: process.env.UNSPLASH_ACCESS_KEY,
     UNSPLASH_SECRET_KEY: process.env.UNSPLASH_SECRET_KEY,
     PIXELS_ACCESS_KEY: process.env.PIXELS_ACCESS_KEY,
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    NEXT_PUBLIC_ASSISTANT_ID: process.env.NEXT_PUBLIC_ASSISTANT_ID,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

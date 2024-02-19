@@ -2,16 +2,22 @@
 
 "use client";
 import { useParams } from "next/navigation";
+import Title from "@/components/ui/Title";
+import Chats from "@/components/lists/Chats";
+import { MessagesProvider } from "@/context/message";
 
 export default function Page() {
   const sessionid = useParams().sessionid as string;
   return (
     <>
-      <div className="flex-center relative h-fit w-full gap-2">
-        <span className="text-balanced text-center text-4xl font-semibold tracking-tighter underline decoration-4 underline-offset-2">
-          Chat here!
-        </span>
-      </div>
+      <MessagesProvider sessionId={sessionid}>
+        <div className="flex h-full w-full flex-col gap-2">
+          <Title size="lg" variant="underline">
+            Your Chats
+          </Title>
+          <Chats />
+        </div>
+      </MessagesProvider>
     </>
   );
 }

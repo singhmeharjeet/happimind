@@ -2,11 +2,7 @@
 import type { ReactNode } from "react";
 import { ThemeProvider } from "next-themes";
 
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
 interface ProvidersProps {

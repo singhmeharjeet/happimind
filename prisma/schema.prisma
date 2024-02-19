@@ -18,26 +18,27 @@ model User {
 
 model Event {
     id        String    @id @default(uuid())
-    userid    String
+    sessions  Session[]
     title     String
     createdAt DateTime  @default(now())
+    userid    String
     user      User      @relation(fields: [userid], references: [clerk_id])
-    sessions  Session[]
 }
 
 model Session {
     id        String   @id @default(uuid())
-    eventId   String
+    threadId  String
+    chats     Chat[]
     createdAt DateTime @default(now())
-    qa        QA[]
+    eventId   String
     event     Event    @relation(fields: [eventId], references: [id])
 }
 
-model QA {
+model Chat {
     id        String   @id @default(uuid())
-    sessionId String
-    userMsg   String
-    aiMsg     String
+    msg       String
+    isUser    Boolean
     createdAt DateTime @default(now())
+    sessionId String
     session   Session  @relation(fields: [sessionId], references: [id])
 }

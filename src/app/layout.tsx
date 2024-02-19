@@ -9,6 +9,7 @@ import { BGImage } from "@/components/BgImage";
 import { ClerkProvider } from "@clerk/nextjs";
 import { env } from "@/env";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "HappiMind",
@@ -46,6 +47,7 @@ export default function RootLayout({
             )}
           </Providers>
           <Footer />
+          <SpeedInsights />
         </body>
       </html>
     </ClerkProvider>

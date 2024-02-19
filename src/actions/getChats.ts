@@ -8,28 +8,22 @@ import { auth } from "@clerk/nextjs";
  * @param param0
  * @returns type { success: boolean, message: string, events: any }
  */
-export async function getSessions({ eventId }: { eventId: string }) {
+export async function getChats({ sessionId }: { sessionId: string }) {
   const { userId } = auth();
   if (!userId) {
     return { success: false, message: "You must be signed in." };
   }
 
   try {
-    const sessions = await db.session.findMany({
-      where: { eventId: eventId },
-      select: {
-        id: true,
-        createdAt: true,
-        _count: { select: { chats : true } },
-      },
+    const chats = await db.chat.findMany({
+      where: { sessionId: sessionId },
     });
 
-
-    if (!sessions) {
+    if (!chats) {
       throw new Error("DB Error: Couldn't connect");
-    }
-
-    return { success: true, sessions };
+	}
+	  
+    return { success: true, chats };
   } catch (error) {
     return {
       success: false,

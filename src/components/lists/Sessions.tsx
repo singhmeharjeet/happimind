@@ -26,7 +26,11 @@ export default function Sessions({ eventId }: { eventId: string }) {
   }
 
   if (isLoading) {
-    return <Loader2 className="size-4 animate-spin" />;
+    return (
+      <div className="flex-center h-full w-full">
+        <Loader2 className="size-4 animate-spin" />
+      </div>
+    );
   }
 
   return (
@@ -52,7 +56,7 @@ export default function Sessions({ eventId }: { eventId: string }) {
                   <span className="mr-2 font-semibold text-foreground/90">
                     Chats
                   </span>
-                  {sess._count.qa}
+                  {sess._count.chats}
                 </CardDescription>
               </Card>
             </Link>
