@@ -4,7 +4,6 @@ import { db } from "@/server/db";
 import { auth } from "@clerk/nextjs";
 
 /**
- *
  * @param param0
  * @returns type { success: boolean, message: string, events: any }
  */
