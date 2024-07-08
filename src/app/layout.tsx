@@ -28,10 +28,11 @@ export const metadata = {
     title: "HappiMind",
     description: "An AI assistant for mental health.",
     url: new URL("https://happimind.vercel.app"),
+
     type: "website",
     images: [
       {
-        url: "/assets/logo.png",
+        url: "https://happimind.vercel.app/assets/logo.png",
         height: 630,
         width: 1200,
       },
